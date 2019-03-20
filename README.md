@@ -1,2 +1,1 @@
-# lmdwebmp
-my private lmdweb
+Generic web with flask, flat pages, mdown and simple user login support.
