@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block styles %}
+{{super()}}
+<link href="/static/mp/css/signin.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Logon page
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+	<!-- <form action="{{url_for('logon')}}" class="form-signin" method="POST"> -->
+	<form class="form-signin" method="POST">
+		<div class="well row">
+		  	{{ form.hidden_tag() }}
+			<div class="form-group {% if form.password.errors %} has-error {% endif %}">
+				{{ form.password(placeholder="", class="form-control") }}
+				{{ form.password.errors[0] }}
+			</div>
+			<button class="btn btn-success btm-sm btn-block" type="submit">Submit</button>
+			<button class="btn btn-warning btm-sm btn-block" type="reset">Reset</button>
+		</div>
+		<div class="well row">
+			<a href="/" class="btn btm-sm btn-block btn-default" role="button">Home</a>
+		</div>
+	</form>
+	<!--
+	<div class="well row">
+		<button class="btn btn-warning btm-sm btn-block onclick="goBack()">Go Back</button>
+	</div>
+	-->
+</div> <!-- container -->
+
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+function goBack() {
+    window.history.back();
+}
+{% endblock %}

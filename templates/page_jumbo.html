@@ -1,0 +1,46 @@
+{% extends "index_base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+        <!-- <div class="jumbotron" style="background:#f5faed !important"> -->
+        <!-- <div class="jumbotron" style="background:#E6F5EB"> -->
+        <!-- <div class="jumbotron" style="background:transparent !important">-->
+            <div class="jumbotron" id="jumbo" >            	
+                {% block ctitle %}
+			    <h2> {{ page.title }} <small> {{ page.date }} </small></h2>
+                <small>
+                {% if page.meta.tags|length %}
+                    Tagged:
+                    {% for page_tag in page.meta.tags %}
+                        <span class="label label-default"> <a href="{{ url_for("tag", tag=page_tag) }}">{{ page_tag }}</a> </span>
+                    {% endfor %}
+                {% endif %}
+                </small>
+			    {% if page.description %}
+			    <h3> {{ page.description }} </h3>
+			    {% endif %}
+                {% endblock ctitle %}
+            </div>
+            <div class="well well-sm">
+                <div class="page-header">
+                    {% block pheader %}
+                    {% if page.subtitle %}
+                    <h3>{{ page.subtitle }}</h3>
+                    {% endif %}
+                    {% endblock pheader %}
+                </div>
+                <div class="well well-sm">
+                    <p></p>
+                    <p>
+                    	{% block pcontent %}
+					    {{ page.html|safe }}
+                    	{% endblock pcontent %}
+                    </p>
+                </div>
+            </div>                
+        </div>
+    </div>
+</div>
+{% endblock content %}

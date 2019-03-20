@@ -1,0 +1,12 @@
+{% if sections %}
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">sections<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+	<li class="dropdown-header">...within this page</li>
+		{% for s in sections %}
+		<li>
+			<a href="{{ url_for("page", path=page.path) }}#{{ s[0] }}"> {{ s[1] }}
+			</a>
+		</li>
+	{% endfor %}
+</ul>
+{% endif %}

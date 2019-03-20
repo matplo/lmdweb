@@ -1,0 +1,25 @@
+{% extends "page.html" %}
+
+{% block ctitle %}
+<h2>Tag: <em>{{ tag }}</em></h2>
+{% endblock ctitle %}
+
+{% block pheader %}
+<div class="panel panel-default">
+	<div class="panel-heading">
+    <h2><em>{{ tag }}</em></huge> tagged pages</h2>
+	</div>
+	<div class="panel-body">
+	<div class="row">
+    {% with pages=tagged_pages  %}
+        {% include "_list.html" %}
+    {% endwith %}
+    </div>
+	</div>
+</div>
+{% endblock pheader %}
+
+{% block pcontent %}
+
+{% endblock pcontent %}
+

@@ -1,0 +1,58 @@
+{% extends "bootstrap/base.html" %}
+
+{% block html_attribs %} lang="en"{% endblock %}
+
+{% block title %}
+{% if page %}
+{{ page.title }}
+{% else %}
+default title
+{% endif %}
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='mp/css/bgfiti.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='mp/css/navbar.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='mp/css/sublevel-dropdown.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='mp/css/other.css')}}">
+
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='mp/css/pygments.css') }}"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='data/pygments-css/github.css') }}">
+<!--<link href="https://dl.dropboxusercontent.com/u/14190654/web/static/resources/mp/css/tomorrow-night.css" rel="stylesheet"> -->
+{% endblock styles %}
+
+{% block body %}
+	{% include "navbar.html" %}
+	{% block content %}
+	{% endblock content %}
+	{% block scripts %}
+		{{super()}}
+		<!-- <script src="{{url_for('.static', filename='mp/js/getServerTime.js')}}"></script> -->
+		<script src="{{url_for('static', filename='mp/js/getClientTime.js')}}"></script>
+		<!-- <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script> -->
+		<script type="text/javascript"
+			async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+		<!-- <script src="{{url_for('static', filename='data/bs/custom/js/bootstrap.min.js')}}"></script> -->
+		<!-- <script src="{{url_for('static', filename='data/jquery/1.11.3/js/jquery.min.js')}}"></script> -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		  config: ["MMLorHTML.js"],
+		  jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+		  extensions: ["MathMenu.js", "MathZoom.js"]
+		});
+		</script>
+		<script>
+			window.twttr = (function (d,s,id) {
+				var t, js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
+				js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+				return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+			}(document, "script", "twitter-wjs"));
+		</script>
+		<!-- script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script -->
+	{% endblock scripts %}
+	{% include "footer.html" %}
+{% endblock body %}

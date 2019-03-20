@@ -1,0 +1,18 @@
+# Example configuration
+SECRET_KEY = '?\xbf,\xb4\x8d\xa3"<\x9c\xb0@\x0f5\xab,w\xee\x8d$0\x13\x8b83'
+RECAPTCHA_PUBLIC_KEY = '6Lfol9cSAAAAADAkodaYl9wvQCwBMr3qGR_PPHcw'
+SESSION_TYPE='filesystem'
+
+# see http://flask.pocoo.org/docs/0.10/config/
+
+FLATPAGES_AUTO_RELOAD = True
+FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite', 'fenced_code', 'tables', 'attr_list', 'toc', 'smart_strong', 'smarty']
+FLATPAGES_EXTENSION='.md'
+FLATPAGES_ROOT = 'pages'
+# FLATPAGES_HTML_RENDERER = prerender_jinja - set when setting up Renderer
+
+DEBUG_TB_INTERCEPT_REDIRECTS = False
+# DEBUG = True
+DEBUG = False
+
+MASTER_USER = 'mp'

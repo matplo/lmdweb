@@ -1,0 +1,110 @@
+html, body {
+    /* background: url('../img/snovabg_lowq2.jpg'); */
+    background: url('../img/IMG_1193_jpg2000.jp2');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 40px;
+    height: 100%;
+}
+
+body {
+    /* Workaround for some mobile browsers */
+    min-height:100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 100px;
+  clear:both;
+  padding-top:20px;
+  color: black;
+  background-color: rgba(255,255,255,0.8);
+}
+
+#foot {
+    /* height: 150px; */
+    /* text-shadow: #444 0 1px 1px; */
+    /* background:transparent; */
+  color: black;
+  background-color: rgba(255,255,255,0.8);
+}
+
+#jumbo {
+    /* height: 350px; */
+    color: black;
+    /* text-shadow: #444 0 1px 1px;*/
+    /* background:transparent; */
+    background: rgba(255,255,255,0.8);
+
+}
+
+.label-default {
+    /* background-color: rgba(255,255,255,0.8);  */
+    background-color: rgba(245,245,245,0.8);
+    color: rgba(0,0,0,1.0);
+}
+
+.container .jumbotron {
+  padding-left: 10px;
+}
+
+.well{
+  background-color: rgba(255,255,255,0.8); /* I don't know the .well color, so I used white as example */
+}
+
+#indexTable {
+    /* height: 350px; */
+    color: black;
+    /* text-shadow: #444 0 0px 0px; */
+    /* background:transparent; */
+    background: rgba(255,255,255,0.2);
+}
+/*
+#navbar {
+    height: 28px;
+    color: black;
+    background: rgba(255,255,255,0.5);
+}
+
+.navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
+.navbar {min-height:10px !important}
+*/
+
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+     border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+     border-top-left-radius: @radius;
+}

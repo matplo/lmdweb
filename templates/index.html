@@ -1,0 +1,24 @@
+{% extends "page.html" %}
+
+{% block pheader %}
+<div class="panel panel-default">
+	<div class="panel-heading">
+    <h1>Index of things</h1>
+    <h5><a href="{{ url_for("logon", path=page.path) }}" class="btn btn-xs btn-danger" role="button">Logon</a> <em> for more content...</h5></em>
+	</div>
+	<div class="panel-body">
+	<div class="row">
+	{% with navtags=navtags %}
+    	{% include "_list_tags.html" %}
+	{% endwith %}
+	</div>
+	</div>
+	</div>
+</div>
+{% endblock pheader %}
+
+{% block pcontent %}
+<!--
+{{ page.html|safe }}
+-->
+{% endblock pcontent %}

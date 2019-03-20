@@ -1,0 +1,13 @@
+<ul>
+{% for page in pages %}
+<div class="col-sm-4">
+       <a href="{{ url_for("page", path=page.path) }}" class="btn btn-sm btn-default btn-block" role="button">{{ page.title }}</a>
+        <!-- <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a> -->
+        {% with page=page %}
+            {% include "list_page_tags.html" %}
+        {% endwith %}
+</div>
+{% else %}
+    <li>No page.</li>
+{% endfor %}
+</ul>

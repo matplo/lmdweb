@@ -1,0 +1,24 @@
+<!-- from: http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 -->
+
+<div class="well">
+<div class="dropdown">
+	<a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
+		Go to... <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+		<li class="dropdown-header"> tags... </li>
+		{% for n in navtags.tags %}
+		<li class="divider"></li>
+		<li class="dropdown-submenu">
+			<a tabindex="-1" href="#"> {{ n.name }} </a>
+				<ul class="dropdown-menu">
+				{% for page in n.pages %}
+		 	      <li><a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a></li>
+				{% endfor %}
+				</ul>
+		{% endfor %}
+		</li>
+	</ul>
+</div>
+</div>
+

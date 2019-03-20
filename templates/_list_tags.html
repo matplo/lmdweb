@@ -1,0 +1,20 @@
+{% for n in navtags.tags %}
+<div class="col-sm-4">
+<div class="panel panel-default">
+	<div class="panel-heading">
+	<h5><a href="{{ url_for("tag", tag=n.name) }}" type="submit" class="btn-sm btn-primary"><span class="glyphicon glyphicon-tag"></span> {{ n.name }} </a></h5>
+	</div>
+	<div class="panel-body">
+			<div class="col-sm-12">
+				<div class="btn-group-vertical" style="width: 100%" role="group" aria-label="...">
+					{% for page in n.pages %}
+						<!--p><a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a></p-->
+						<a href="{{ url_for("page", path=page.path) }}" type="submit" class="btn btn-sm btn-default col-lg-12" style="margin-bottom:0px; word-wrap:break-word; white-space:normal;">{{ page.title }}</a>
+					{% endfor %}
+				</div>
+			</div>
+	</div>
+</div>
+</div>
+{% endfor %}
+

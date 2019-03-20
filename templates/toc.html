@@ -1,0 +1,8 @@
+{% if navtags.toc(page) %}
+<div class="btn-group">
+	<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Contents...<span class="caret"></span></button>
+	{% with toc = navtags.toc(page) %}
+	{{ toc | safe }}
+	{% endwith %}
+</div>
+{% endif %}
