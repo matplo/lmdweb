@@ -1,0 +1,76 @@
+from: http://getbootstrap.com/examples/signin/
+
+<div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+	</div> <!-- /container -->
+
+
+
+
+form:
+  <form class="form-signin">
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" class="form-control"
+  placeholder="Password" required>
+  <p></p>
+  <button class="btn btn-lg btn-primary btn-sm btn-block" type="submit">Logon</button>
+  </form>
+</div>
+</div>
+
+
+<div class="wrapper">
+  <img src="img/IMG_2376_lowq.jpg" class="img-responsive" alt="Responsive image">
+</div>
+
+
+   {% block footer %}
+
+<!-- Footer ================================================== -->
+<footer class="footer" role="contentinfo">
+<div class="container">
+  <p id="about"> About: A utility page. Nothing more. </p>
+  <p id="contact"> Contact: use email. </p>
+  <ul class="bs-docs-footer-links text-muted">
+    <li>Useful links: </li>
+    <li><a href="https://github.com">GitHub</a></li>
+    <li><a href="http://ploskon.com/geo">Geo</a></li>
+  </ul>
+</div>
+</footer>
+{% endblock %} <!-- end footer -->
+
+   <footer class="footer">
+   <div class="container">
+     <p class="text-muted">
+     <p id="about"> About: A utility page. Nothing more. </p>
+     <p id="contact"> Contact: use email. </p>
+     <ul class="text-muted">
+       <li>Useful links: </li>
+       <li><a href="https://github.com">GitHub</a></li>
+       <li><a href="http://ploskon.com/geo">Geo</a></li>
+     </ul>     
+     </p>
+   </div>
+   </footer>
+
+<link href="{{bootstrap_find_resource('css/bootstrap-theme.css', cdn='bootstrap')}}" rel="stylesheet" media="screen">
+
+
+<link href="/static/css/sticky-footer.css" rel="stylesheet">
+
+              <li class="active"><a href="#">Top</a></li>   

@@ -1,0 +1,49 @@
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Links<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+	<li class="dropdown-header">Local links...</li>
+	{% for page in pages %}
+	<li>
+		<a href="{{ url_for("page", path=page.path) }}"> {{ page.title }}
+			<small>
+				{% if page.meta.tags|length %}
+				{% for page_tag in page.meta.tags %}
+				<span class="label label-default"> {{ page_tag }} </span>
+				{% endfor %}
+				{% endif %}        
+			</small>
+		</a>
+	</li>
+	{% endfor %}
+	<li class="divider"></li>
+	<li class="dropdown-header">External links...</li>
+	<li><a href="http://www.google.com" target="_blank">Google</a></li>
+</ul>
+
+#from navbar
+
+{% if session['user'] %}
+<a class="navbar-brand navbar-right" href="/logout">
+	logout [{{ session['user'].name }}]</A>
+{% else %}
+	<a class="navbar-brand navbar-right" href="/logon">logon</a>
+{% endif %}	    
+
+from navbar.html 
+				<!--
+				<li class="dropdown">
+				{% with sections = navtags.sections(page) %}
+					{% include "navbar_drop_down_sections.html" %}
+				{% endwith %}
+				</li>				
+				-->
+
+
+				{% if navtags.toc(page) %}
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">toc<span class="caret"></span></a>
+	    		        {% with toc = navtags.toc(page) %}
+    				        {{ toc | safe }}
+	            		{% endwith %}
+	            	</li>
+            	{% endif %}
+

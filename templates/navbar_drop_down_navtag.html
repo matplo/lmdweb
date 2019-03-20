@@ -1,0 +1,17 @@
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">{{ navtag.name }}<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+	<li class="dropdown-header">Local links...</li>
+	{% for page in navtag.pages %}
+	<li>
+		<a href="{{ url_for("page", path=page.path) }}"> {{ page.title }}
+			<small>
+				{% if page.meta.tags|length %}
+					{% for page_tag in page.meta.tags %}
+						<span class="label label-default"> {{ page_tag }} </span>
+					{% endfor %}
+				{% endif %}        
+			</small>
+		</a>
+	</li>
+	{% endfor %}
+</ul>

@@ -1,0 +1,5 @@
+{% if page.meta.tags|length %}
+	{% for page_tag in page.meta.tags %}
+	<span class="label label-default"> <a href="{{ url_for("tag", tag=page_tag) }}"><span class="glyphicon glyphicon-tag"></span> {{ page_tag }} </a> </span>
+	{% endfor %}
+{% endif %}
