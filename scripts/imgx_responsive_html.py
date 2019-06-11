@@ -89,25 +89,46 @@ class IMGHTMLParser(HTMLParser):
 	def render_tag(self, i=0):
 		if len(self.attrs) <= 0:
 			return ''
-		w = 12
-		outs = '''
-		<div class="row">
-			<div class="col-md-{highw}">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h2 class="panel-title">{title}</h2>
+		w = self.get_attr('width', self.attrs[i])
+		norow = self.get_attr('norow', self.attrs[i])
+		if not w:
+			w = "4"
+		if norow == 'true':
+			outs = '''
+			<div class="col">
+				<div class="col-md-{highw}">
+					<div class="panel panel-warning">
+						<div class="panel-heading">
+							<h2 class="panel-title">{title}</h2>
+						</div>
+						<div class="panel-body">
+							<img class="img-responsive center-block" src="{what}" alt="{title}"></img>
+						</div>
+						<div class="panel-footer">{footer}</div>
 					</div>
-					<div class="panel-body">
-						<img class="img-responsive center-block" src="{what}" alt="{title}"></img>
-					</div>
-					<div class="panel-footer">{footer}</div>
 				</div>
 			</div>
-		</div>
-		'''.replace('	', '').format(	highw=w,
-										title=self.get_attr('title', self.attrs[i]),
-										footer=self.get_attr('footer', self.attrs[i]),
-										what=self.get_attr('src', self.attrs[i]) )
+			'''
+		else:
+			outs = '''
+			<div class="row">
+				<div class="col-md-{highw}">
+					<div class="panel panel-warning">
+						<div class="panel-heading">
+							<h2 class="panel-title">{title}</h2>
+						</div>
+						<div class="panel-body">
+							<img class="img-responsive center-block" src="{what}" alt="{title}"></img>
+						</div>
+						<div class="panel-footer">{footer}</div>
+					</div>
+				</div>
+			</div>
+			'''
+		outs = outs.replace('	', '').format(	highw=w,
+												title=self.get_attr('title', self.attrs[i]),
+												footer=self.get_attr('footer', self.attrs[i]),
+												what=self.get_attr('src', self.attrs[i]) )
 		return outs
 
 

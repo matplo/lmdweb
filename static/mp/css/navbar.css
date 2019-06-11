@@ -21,21 +21,22 @@ body {
     overflow:hidden;
 }
 
-.scrollable-menu {
-    height: auto;
-    max-height: 180px;
-    overflow-x: hidden;
-}
-
 .scrollable-menu::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 4px;        
-}    
+    width: 4px;
+}
 
 .scrollable-menu::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background-color: lightgray;
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.75);        
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.75);
 }
 
+.dropdown-menu{
+   max-height:400px;
+   overflow-y: scroll;
+}
 
+body {
+  min-height: 100%;
+}

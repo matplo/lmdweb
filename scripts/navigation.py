@@ -1,5 +1,5 @@
 import markdown
-
+import page_utils
 from HTMLParser import HTMLParser
 
 # https://docs.python.org/2/library/htmlparser.html
@@ -49,13 +49,15 @@ class NavTags(object):
 	def __init__(self, app, flatpagesname=None):
 		self.app       = app
 		self.all_pages = app.extensions['flatpages'][flatpagesname]
-		self.pages     = [p for p in self.all_pages if p.meta.get('published')]
+		# self.pages     = [p for p in self.all_pages if p.meta.get('published')]
+		self.pages     = [p for p in self.all_pages if page_utils.safe_meta_get(p, 'published', True)]
 		self.tags      = []
 		self._pages_to_tags()
 		self.app.navtags   = self
 
 	def filter_for_user(self, user):
-		tmppages = [p for p in self.all_pages if p.meta.get('published')]
+		# tmppages = [p for p in self.all_pages if p.meta.get('published')]
+		tmppages = [p for p in self.all_pages if page_utils.safe_meta_get(p, 'published', True)]
 		self.pages = []
 		for p in tmppages:
 			if self.app.auth.user_authorized(user, p):
@@ -107,7 +109,8 @@ class NavTags(object):
 
 	def _pages_to_tags(self):
 		for p in self.pages:
-			taglist = p.meta.get('tags', [])
+			# taglist = p.meta.get('tags', [])
+			taglist = page_utils.safe_meta_get(p, 'tags', ['untagged'])
 			for t in taglist:
 				tp = self.get_tag(t)
 				if tp == None:

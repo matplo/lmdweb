@@ -1,8 +1,8 @@
-title: ALICE Publications
+title: ALICE Publications - TWiki
 subtitle:
 nolink: False
 published: 2017-01-22
-tags: ['physics']
+tags: [physics,alice]
 template: page.html
 
 Table of publications

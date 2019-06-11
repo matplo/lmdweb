@@ -1,5 +1,6 @@
-from scripts import userdb
-
+# from scripts import userdb
+import userdb
+import page_utils
 
 class Authentication(object):
 	def __init__(self, app):
@@ -7,7 +8,8 @@ class Authentication(object):
 		app.auth = self
 
 	def get_users_authorized(self, page):
-		users_authorized = page.meta.get('users', 'all')
+		# users_authorized = page.meta.get('users', 'all')
+		users_authorized = page_utils.safe_meta_get(page, 'users', None)
 		if users_authorized is None:
 			users_authorized = 'all'
 		reta = []

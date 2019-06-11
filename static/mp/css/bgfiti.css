@@ -1,6 +1,6 @@
 html, body {
     /* background: url('../img/snovabg_lowq2.jpg'); */
-    background: url('../img/IMG_1193_jpg2000.jp2');
+    background: url('../img/IMG_1193.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -10,6 +10,7 @@ html, body {
     background-size: cover;
     padding-top: 40px;
     height: 100%;
+    display: block;
 }
 
 body {

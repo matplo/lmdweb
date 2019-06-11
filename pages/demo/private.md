@@ -1,7 +1,8 @@
 title: Private page
 description: This requires authorization
-users: mat, user
+users: [mp]
 published: 2016-02-07
+tags: [mp]
 template: page.html
 
 # Synopsis

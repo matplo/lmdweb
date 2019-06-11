@@ -1,5 +1,7 @@
 import markdown
 from imgx_responsive_html import render_imgx
+from render_container_html import render_container
+from render_btn_link_html import render_blink
 from flask import render_template_string, Markup
 from root_plot_html import render_rootjs
 from render_exec import render_exec
@@ -40,9 +42,12 @@ def prerender_jinja(body=''):
 	body = render_exec(body)
 	body = render_rootjs(body)
 	body = render_imgx(body)
+	# body = render_blink(body)
+	body = render_container(body)
 	body = table_bootstrap(body)
 	body = header_h1_well(body)
 	return body
+
 
 def prerender_jinja_md(body=''):
 	global gRenderer
@@ -50,6 +55,8 @@ def prerender_jinja_md(body=''):
 	body = render_exec(body)
 	body = render_rootjs(body)
 	body = render_imgx(body)
+	# body = render_blink(body)
+	body = render_container(body)
 	body = table_bootstrap(body)
 	body = header_h1_well(body)
 	return body

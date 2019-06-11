@@ -8,18 +8,13 @@ tags: [mp, service]
 Status
 ===
 
-`![exec](git status){: raw}`
-
-![exec](git status){: raw}
-
 `![exec](git){: raw args="status"}`
 
 ![exec](git){: raw args="status"}
 
-`![exec](git){: raw}`
+Diff
+===
 
-![exec](git){: raw}
+The following is potentially dangerous if not escaped properly - ninja tags \{\{\}\} are possible.
 
-`![exec](ls){: raw args="-l -t -r"}`
-
-![exec](ls){: raw args="-l -t -r"}
+`![exec](git){: raw args="diff"}`

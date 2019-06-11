@@ -3,7 +3,7 @@ subtitle: just a demo
 published: True
 users: mp
 template: service.html
-tags: [service, demo]
+tags: [service]
 execs: [ geo_ip.response, get_time.now ]
 
 # Synopsis

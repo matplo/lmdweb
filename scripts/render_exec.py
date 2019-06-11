@@ -71,7 +71,7 @@ def render_exec(text):
 	starts = '<img alt="exec"'
 	ends   = ' />'
 	srepl = text_between(text, starts, ends)
-	print 'to be replaced:', srepl
+	# print 'to be replaced:', srepl
 	while len(srepl) > 0:
 		p = RIMGHTMLParser()
 		p.feed(text)
@@ -83,16 +83,17 @@ def render_exec(text):
 		if exec_script[:2] == './':
 			cdir = '{}/'.format(prerender.gRenderer.app.config['APP_DIR'])
 			exec_script = exec_script.replace('./', cdir)
-		print 'exec script:', exec_script
+		# print 'exec script:', exec_script
 		result_script = call_exec(exec_script, ' ')
+		result_script = unicode(result_script, encoding='utf-8', errors='replace')
 		# print result_script
 		if p.get_attr('raw'):
-			print '[i] attribute raw present...'
-			stmp = '```\n{}\n```\n'.format(result_script)
+			# print '[i] attribute raw present...'
+			stmp = '```\n{}\n```\n'.format(result_script.encode('utf-8', errors='replace'))
 			result_script = prerender.prerender_jinja_codehilite(stmp)
 		else:
 			if p.get_attr('md'):
-				print '[i] attribute md present...'
+				# print '[i] attribute md present...'
 				result_script = prerender.prerender_jinja_md(result_script)
 
 		if result_script is None:
